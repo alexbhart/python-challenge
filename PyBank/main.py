@@ -4,7 +4,7 @@ import math
 
 # bring in csv into script
 
-csvpath = os.path.join('D:\edx_bootcamp\python-challenge\PyBank','Resources','budget_data.csv')
+csvpath = os.path.join('D:\\edx_bootcamp\\python-challenge\\PyBank','Resources','budget_data.csv')
 
 # establish lists
 date = []
@@ -37,24 +37,32 @@ with open(csvpath, "r") as csvfile:
 
 # average change (sum of changes / number of items)
 
-    #average_change = total / (len(date))
-    #print(average_change)
+    
 
     pnl_change = [] #creates list that acts as 'third' column of csv 
-    for x in pnl: 
-        next_row = row
-        change = int(sum(row[x]))
+    i_pnl = [int(x) for x in pnl]
+    for x in range(len(i_pnl)): 
+        if i_pnl[0] == 0:
+            change = 0
+        else: change = (i_pnl[x-1] + i_pnl[x])
+        pnl_change.append(change)
+        avg_change = int(sum(pnl_change)) / (len(pnl_change))
 
 # find max 
+    maxchange = max(pnl_change)
 
 # find min
-
+    minchange = min(pnl_change)
 # print analysis to terminal
 
 print("Financial Analysis")
 print("----------------------------------------------")
 print("Total Months: " + str(len(date)))
 print(f"Total: ${total}")
+print(f"Average Change: ${avg_change}")
+print(f"Greatest Increase in Profits: {maxchange}")
+print(f"Greatest Decrease in Profits: {minchange}")
+
 
 
 
