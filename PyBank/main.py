@@ -5,7 +5,7 @@ import math
 # bring in csv into script
 
 csvpath = os.path.join('D:\\edx_bootcamp\\python-challenge\\PyBank','Resources','budget_data.csv')
-
+file_output = os.path.join('Analysis/bank_analysis.txt')
 # establish lists
 date = []
 pnl = []
@@ -64,8 +64,12 @@ print(f"Greatest Increase in Profits: {maxchange}")
 print(f"Greatest Decrease in Profits: {minchange}")
 
 
-
-
-
 #write analysis to new text file
-
+with open(file_output, 'w') as text_output
+    text_output.write("Financial Analysis")
+    text_output.write("----------------------------------------------")
+    text_output.write("Total Months: " + str(len(date)))
+    text_output.write(f"Total: ${total}")
+    text_output.write(f"Average Change: ${avg_change}")
+    text_output.write(f"Greatest Increase in Profits: {maxchange}")
+    text_output.writet(f"Greatest Decrease in Profits: {minchange}")")
