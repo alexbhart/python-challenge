@@ -1,10 +1,11 @@
 import os
 import csv
-
+import pandas as pd
 
 #import csv
 
-election_csv = os.path.join("PyPoll\\Resources\\election_data.csv")
+election_csv = os.path.join("Resources/election_data.csv")
+text_results = os.path.join("Analysis/election_analysis.txt")
 
 #read csv
 
@@ -48,14 +49,20 @@ with open(election_csv, 'r') as election_data:
             third_candidate += 1    
     
 # calculate percentages of total votess
-    first_candidate_percentage = first_candidate / total_votes
-    second_candidate_percentage = second_candidate / total_votes
-    third_candidate_percentage = third_candidate / total_votes        
+    first_candidate_percentage = round(first_candidate / total_votes * 100, 2)
+    second_candidate_percentage = round(second_candidate / total_votes * 100, 2)
+    third_candidate_percentage = round(third_candidate / total_votes * 100, 2)        
 #winner of the election based on popular vote
-    
-      
-    
-    
+
+
+dict_results = {
+    "Candidate": [unique_candidates],
+    "Percentage": [first_candidate_percentage, second_candidate_percentage, third_candidate_percentage],
+    "Total Votes": [first_candidate, second_candidate, third_candidate]
+
+}
+
+
 # Election Results
 
 # ---------------------------------------
@@ -69,3 +76,13 @@ with open(election_csv, 'r') as election_data:
 # Winner: Max of popular votes
 
 # ---------------------------------------
+
+print("Election Results")
+print("---------------------------------")
+print(f"{unique_candidates[0]} : {first_candidate_percentage}% ({first_candidate})")
+print(f"{unique_candidates[1]} : {second_candidate_percentage}% ({second_candidate})")
+print(f"{unique_candidates[2]} : {third_candidate_percentage}% ({third_candidate})")
+print("---------------------------------")
+print(f"Winner: {dict_results["Candidate"]}!")
+print("---------------------------------")
+
