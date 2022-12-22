@@ -86,3 +86,13 @@ print("---------------------------------")
 print(f"Winner: {dict_results["Candidate"]}!")
 print("---------------------------------")
 
+with open(text_results, 'w') as text_analysis
+
+    text_analysis.write("Election Results")
+    text_analysis.write("---------------------------------")
+    text_analysis.write(f"{unique_candidates[0]} : {first_candidate_percentage}% ({first_candidate})")
+    text_analysis.write(f"{unique_candidates[1]} : {second_candidate_percentage}% ({second_candidate})")
+    text_analysis.write(f"{unique_candidates[2]} : {third_candidate_percentage}% ({third_candidate})")
+    text_analysis.write("---------------------------------")
+    text_analysis.write(f"Winner: {dict_results["Candidate"]}!")
+    text_analysis.write("---------------------------------")    
